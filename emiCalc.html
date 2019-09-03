@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        #heading{
+            background-color: blue;
+            border: 1px solid black;
+           text-align: center;
+           font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+           color:#FFF;
+        }
+        #main{
+            background-color: orange;
+            border: 1px solid blue;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace
+        }
+        </style>
+
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body >
+            <h1 id="heading" style="margin:auto">
+                EMI Calculator
+            </h1>
+        <div ng-app="emiApp" ng-controller="parent" id="main">
+            Input amount: 
+                            <select type="number" ng-model="pAmount">
+                                <option type="number" value=50000>50000/-</option>
+                                <option type="number" value=100000>100000/-</option>
+                                <option type="number" value=200000>200000/-</option>
+                                <option type="number" value=300000>300000/-</option>
+                            </select>
+            
+            <br>
+            Rate of Interest: <input type="number" ng-model="ri"><br>
+            Time (in months): <input type="number" ng-model="time"><br><br>
+
+            Your EMI is valued to {{(pAmount*1+((pAmount*ri)/100))/time}}
+        </div>
+
+        <script>
+            var x=angular.module("emiApp",[]);
+            x.controller("parent", function($scope){
+               
+            })
+
+        </script>
+    </body>
+</html>
